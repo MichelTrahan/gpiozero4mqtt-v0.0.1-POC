@@ -1,0 +1,28 @@
+This directory contains two directories, one for each Raspberry Pi used in this sample.
+
+The first directory, Raspi_1, contains the XML definition file for what is connected to the raspberry, a simple button for now, with all the available parameters associated with the button defined in the gpiozero library. 
+
+The second directory, Raspi_2, contains the XML definition file for the 4 LEDs connected to the raspberry. All using the default values for each available parameters associated with the LEDs found in the gpiozero library.
+
+The button controller file represents the bare minimum. PIOT_Controller.py contains no specific code to react to another raspberry actions. It is the minimum code needed to run the gpiozero4mqtt library.
+
+The led controller file, PIOT_Controller_Modified.py, has some code to react when the button defined in the other raspberry is pressed, held or released. It shows that you can program some reactions without a third software that controls them all.
+
+The default XML file name and location is "./data/GPIO4MQTT.xml" relative to where the Controller file is.
+
+Using the default XML file name and location you type:
+
+	python3 PIOT_Controller.py
+
+But if you want more control on the name or path you can type:
+
+	python3 PIOT_Controller.py ./path/Filename.xml
+
+for both raspberry, since the sample has the XML at the same level as the Controller code, you could type:
+
+	python3 PIOT_Controller.py ./Raspi_2_1.xml
+	python3 PIOT_Controller_Modified.py ./Raspi_3_1.xml
+
+To be complete, both directories need the full content of the /Code/Library directory, copied at the same level as the Controller file.
+
+I left them out to show what is the bare minimum needed to modify, i.e. the XML and possibly the Controller file if you want to react to some actions from widgets found on another raspberry pi using the same class.

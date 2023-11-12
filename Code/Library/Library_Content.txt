@@ -1,0 +1,21 @@
+This directory has the following files:
+
+	clsLog.py
+	Raspi_Info.py
+	RPi_I2C_driver.py
+
+	gpiozero4mqtt.py
+	SourceConnectionProcessor.py
+
+The clsLog.py is used to create multiple log files if needed in one application.
+
+The Raspi_Info.py creates dictionaries used with JSON to get the health of a Raspberry Pi that uses the gpiozero4mqtt library.
+
+TPi_I2C_driver.py is used for lcd processing.
+
+The main workhorse is gpiozero4mqtt.py which process the XML and the MQTT messages.
+
+The SourceConnectionProcessor.py is ... used to process the source parameters of the gpiozero widgets, using XML ... this is text base but it works ...
+
+Some of you might say ... hey why not create a module ... this is my first python project ... and I had to learn python, mqtt, tkinter, gpiozero ...
+

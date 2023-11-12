@@ -1,0 +1,73 @@
+This directory contains only one file, GPIO4MQTT-ALL.xml
+
+Never use this file as is ... many widgets are defined using the same pins ...
+
+This file contains an exemple of how to define every widget defined in the gpiozero which is available in the gpiozero4mqtt library.
+
+Each widget has its defining main tag and it also can have optional tags. When you are not using the optional tags it means that you use the default values for the parameters defined in those tags.
+
+MQTT_LED
+MQTT_PWMLED
+MQTT_RGBLED
+MQTT_PWMOutputDevice
+MQTT_Buzzer
+MQTT_TonalBuzzer
+MQTT_Motor
+MQTT_PhaseEnableMotor
+MQTT_Servo
+MQTT_AngularServo
+MQTT_DigitalOutputDevice
+MQTT_OutputDevice
+
+MQTT_SoundMixer
+MQTT_2x16_lcd_I2C
+
+MQTT_Button
+MQTT_LineSensor
+MQTT_LightSensor
+MQTT_MotionSensor
+MQTT_DistanceSensor
+MQTT_DigitalInputDevice
+
+MQTT_4x4_Keypad
+MQTT_RFID
+MQTT_USB_GPS
+MQTT_MCP3008
+
+It also show you how to take advantage of the source attribute of all gpiozero widgets.
+
+All_Values
+Any_Values
+Averaged
+Multiplied
+Summed
+Zip_Values
+Zip
+
+each of these tags also have the target="Blue1" attribute to link the results to the source of the target.
+
+Each of those functions tags use Device tags, which has a function and source tag. Some tags have inner parameters in the Params tag, each type of function has its own list of Params attributes. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

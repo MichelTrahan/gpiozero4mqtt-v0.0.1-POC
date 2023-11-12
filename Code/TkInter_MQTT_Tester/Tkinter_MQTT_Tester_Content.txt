@@ -1,0 +1,11 @@
+This directory contains a Tkinter application to help test the gpiozero4mqtt class. 
+
+It can interact with any MQTT server.
+
+
+
+The application needs an XML subdirectory to receive the XMLs from the Raspberry Pi using the gpiozero4mqtt library. It also needs a log directory.
+
+
+
+This is my first Tkinter application ... and my first mqtt tester ... in a new language ... python !

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpiozero4MQTTcpu name="Raspi_3_1" room="Room1" logTo="./log/gpiozero4mqtt" atLevel="10" >
+	<!-- MQTT broker connection information -->
+	<MQTT host="10.148.82.21" port="1883" keepalive="60" qos="2"/>
+	<!-- MQTT LEDs  -->
+	<MQTT_LED name="Blue1" pin="5"/>
+	<MQTT_LED name="Red1" pin="6"/>
+	<MQTT_LED name="Yellow1" pin="13"/>
+	<MQTT_LED name="Green1" pin="19"/>
+</gpiozero4MQTTcpu>

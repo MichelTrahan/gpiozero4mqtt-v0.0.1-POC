@@ -1,0 +1,8 @@
+This directory contains the documentation for the gpiozero4mqtt library.
+
+The documentation is separated into two parts. The documentation of the library per say, and how to connect things with fritzing diagrams and how to define them in the XML.
+
+There are 2 documents:
+
+	gpiozero4mqtt.pdf
+	gpiozero-Fritzing.pdf

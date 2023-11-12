@@ -1,0 +1,193 @@
+<GPIO4MQTT name="Raspi_2_1" room="Room1" logTo="./log/gpiozero4mqtt" atLevel="10" >
+	<!-- MQTT broker connection information -->
+	<MQTT host="10.148.82.21" port="1883" keepalive="60" qos="2"/>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!-- gpiozero OUTPUT objects                   -->
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!-- MQTT LED  -->
+    <MQTT_LED name="Blue1" pin="5">
+	<Static active_high="True" initial_value="False" pin_factory="None"/> <!-- Optional -->
+    </MQTT_LED>
+    <!-- MQTT PWMLED -->
+    <MQTT_PWMLED name="PWMLED1" pin="12">
+		<Static active_high="True" initial_value="0" frequency="100" pin_factory="None"/> <!-- Optional -->
+    </MQTT_PWMLED>   
+    <!-- MQTT RGBLED -->
+    <MQTT_RGBLED name="RGB1" r="16" g="20" b="21">
+        <Static active_high="True" initial_value="(0, 0, 0)" pwm="True" pin_factory="None"/> <!-- Optional -->
+    </MQTT_RGBLED>
+    <!-- MQTT PWMOutputDevice -->
+    <MQTT_PWMOutputDevice name="PWMOutDev1" pin="12">
+		<Static active_high="True" initial_value="0" frequency="100" pin_factory="None"/> <!-- Optional -->
+    </MQTT_PWMOutputDevice>   
+    <!-- MQTT Buzzer -->
+    <MQTT_Buzzer name="Buzzer1" pin="12">
+		<Static active_high="True" initial_value="False" pin_factory="None"/> <!-- Optional -->
+    </MQTT_Buzzer>   
+    <!-- MQTT TonalBuzzer -->
+    <MQTT_TonalBuzzer name="ToanlBuzzer1" pin="12">
+		<ToneSpec initial_value="None" mid_tone="A4" octaves="1"/> <!-- Optional -->
+		<Static pin_factory="None"/> 	   <!-- Optional -->
+    </MQTT_TonalBuzzer>   
+    
+	<!-- those need testing ... to be done, MOTOR, PhaseEnableMotor, Servo, AngularServo, DigitalOutputDevice, OutputDevice  -->
+    <!-- 2021-03-28 -->
+
+    <!-- MQTT Motor -->
+    <MQTT_Motor name="Motor1" forward="12" backward="6" enable="None" pwm="True">
+		<Static active_high="True" pin_factory="None"/> <!-- Optional -->
+    </MQTT_Motor>   
+    <!-- MQTT PhaseEnableMotor -->
+    <MQTT_PhaseEnableMotor name="PhaseEnableMotor1" phase="12" enable="13" pwm="True">
+		<Static active_high="True" pin_factory="None"/> <!-- Optional -->
+    </MQTT_PhaseEnableMotor>   
+    <!-- MQTT Servo -->
+    <MQTT_Servo name="Servo1" pin="12" initial_value="0" min_pulse_width="1/1000" max_pulse_width="2/1000" frame_width="20/1000">
+		<Static active_high="True" pin_factory="None"/> <!-- Optional -->
+    </MQTT_Servo>   
+    <!-- MQTT AngularServo -->
+    <MQTT_AngularServo name="AngularServo1" pin="12" initial_angle="0" min_angle="-90" max_angle="90" min_pulse_width="1/1000" max_pulse_width="2/1000" frame_width="20/1000">
+		<Static active_high="True" pin_factory="None"/> <!-- Optional -->
+    </MQTT_AngularServo>   
+    <!-- MQTT DigitalOutputDevice -->
+    <MQTT_DigitalOutputDevice name="DigitalOutputDevice1" pin="12">
+		<Static active_high="True" initial_value="False" pin_factory="None"/> <!-- Optional -->
+    </MQTT_DigitalOutputDevice>   
+    <!-- MQTT OutputDevice -->
+    <MQTT_OutputDevice name="OutputDevice1" pin="12">
+		<Static active_high="True" initial_value="False" pin_factory="None"/> <!-- Optional -->
+    </MQTT_OutputDevice>   
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!-- user defined OUTPUT                         -->
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<!-- those need testing ... to be done  SoundMixer, 2x16_lcd_I2C, shift register, ... -->
+
+
+    <!-- MQTT SoundMixer -->
+    <MQTT_SoundMixer name="SoundMixer1">
+		<Static nbr_of_channels="6" frequency="48000" size="-16" mono_or_stereo="1" buffer_size="1024"/> <!-- Optional -->
+    </MQTT_SoundMixer>   
+    <!-- MQTT 2x16_lcd_I2C (uses pins: SDA1(3), SCL1(5). GND, 5V) -->
+    <MQTT_2x16_lcd_I2C name="LCD1" address="0x27"/>
+
+
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!-- gpiozero INPUT objects ALL TESTED  -->
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!-- MQTT Button  -->
+    <MQTT_Button name="bigButton" pin="18" when_pressed="True" when_held="True" when_released="True">
+	<Static pull_up="False" active_state="None" pin_factory="None"/>	<!-- Optional -->
+	<Time bounce_time="0.05" hold_time="0.25" hold_repeat="False"/> <!-- Optional -->
+    </MQTT_Button>
+    <!-- MQTT LineSensor TRCT5000 infra red proximity sensor -->
+    <MQTT_LineSensor name="LineSensor1" pin="12" when_line="True" when_no_line="True">
+		<Static pull_up="False" active_state="None" pin_factory="None"/>	<!-- Optional -->
+		<Queue queue_len="5" sample_rate="100" threshold="0.5" partial="False"/> <!-- Optional -->
+    </MQTT_LineSensor>  
+    <!-- MQTT LightSensor -->
+    <MQTT_LightSensor name="LightSensor1" pin="12" when_light="True" when_dark="True">
+		<Static pin_factory="None"/>	<!-- Optional -->
+		<Queue queue_len="1" charge_time_limit="0.01" threshold="0.1" partial="False"/> <!-- Optional -->
+    </MQTT_LightSensor>   
+    <!-- MQTT MotionSensor D-SUN PIR (Passive IR) motion sensor -->
+    <MQTT_MotionSensor name="PIR1" pin="12" when_motion="True" when_no_motion="True">
+		<Static pull_up="False" active_state="None" pin_factory="None"/>	<!-- Optional -->
+		<Queue queue_len="1" sample_rate="100" threshold="0.5" partial="False"/> <!-- Optional -->
+    </MQTT_MotionSensor>   
+    <!-- MQTT DistanceSensor HC-SR04 -->
+    <MQTT_DistanceSensor name="DistanceSensor1" echo="12" trigger="6" when_in_range="True" when_out_of_range="True" send_every="None">
+		<Static pin_factory="None"/>	<!-- Optional -->
+		<Queue queue_len="30" max_distance="1" threshold_distance="0.3" partial="False" /> <!-- Optional -->
+    </MQTT_DistanceSensor>   
+	<!-- MQTT DigitalInputDevice-->
+	<MQTT_DigitalInputDevice name="selector1" pin="22" when_activated="True" when_deactivated="True" bounce_time="0.02">
+		<Static pull_up="True" active_state="None" pin_factory="None"/> <!-- Optional -->
+	</MQTT_DigitalInputDevice>
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!-- user defined INPUT     keypad, rfid, usb-GPS, mcp3008  -->
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+	<!-- those need testing ... to be done  -->
+
+
+
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <!--  gpiozero source connections ... impressive   BASIC TEST DONE -->
+    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+    <SourceConnections>
+      <Connect target="Green1" function="" source="Button1"/>
+      <Connect target="Green1" function="negated" source="Button1"/>
+      <Connect target="Green1" function="absoluted" source="Button1"/>
+      <Connect target="SuperGreen1" function="scaled" source="SuperButton1">
+        <Params outmin="-1" outmax="1" inmin="0" inmax="1"/>
+      </Connect>
+      <All_Values target="Blue1">
+        <Device function="" source="MotionSensor1"/>
+        <Device function="booleanized" source="LightSensor1">
+          <Params min="0.3" max="1" hysteresis="0"/>
+        </Device>
+      </All_Values>
+      <Any_Values target="Red1">
+        <Device function="scaled" source="MCP3008_Chan0">
+          <Params outmin="-1" outmax="1" inmin="0" inmax="1"/>
+        </Device>
+        <Device function="scaled" source="MCP3008_Chan1">
+          <Params outmin="-1" outmax="1" inmin="0" inmax="1"/>
+        </Device>
+        <Device function="scaled" source="MCP3008_Chan2">
+          <Params outmin="-1" outmax="1" inmin="0" inmax="1"/>
+        </Device>
+        <Device function="scaled" source="MCP3008_Chan3">
+          <Params outmin="-1" outmax="1" inmin="0" inmax="1"/>
+        </Device>
+      </Any_Values>
+      <Averaged target="Blue1">
+        <Device function="clamped" source="Blue1">
+          <Params min="1" max="2"/>
+        </Device>
+        <Device function="inverted" source="Red1">
+          <Params min="0" max="1"/>
+        </Device>
+        <Device function="queued" source="Yellow1">
+          <Params size="3"/>
+        </Device>
+      </Averaged>
+      <Multiplied target="Yellow1">
+        <Device function="quantitized" source="Red1">
+          <Params steps="5" min="0" max="1" />
+        </Device>
+        <Device function="booleanized" source="Green1">
+          <Params min="0.3" max="1" hysteresis="0"/>
+        </Device>
+      </Multiplied>
+      <Summed target="Green1">
+        <Device function="clamped" source="Blue1">
+          <Params min="0" max="1"/>
+        </Device>
+        <Device function="inverted" source="Red1">
+          <Params min="-1" max="1"/>
+        </Device>
+        <Device function="negated" source="Red2"/>
+        <Device function="queued" source="Yellow1">
+          <Params size="5"/>
+        </Device>
+        <Device function="" source="Blue1"/>
+        <Device function="" source="Red1"/>
+        <Device function="" source="Yellow1"/>
+      </Summed>
+      <Zip_Values target="Blue1">
+        <Device function="" source="Yellow1"/>
+        <Device function="" source="Red1"/>
+      </Zip_Values>
+      <Zip target="Blue1">
+        <Device function="clamped" source="Yellow1">
+          <Params min="1" max="2"/>
+        </Device>
+        <Device function="inverted" source="Red1">
+          <Params min="0" max="1"/>
+        </Device>
+      </Zip>
+    </SourceConnections>
+</GPIO4MQTT>

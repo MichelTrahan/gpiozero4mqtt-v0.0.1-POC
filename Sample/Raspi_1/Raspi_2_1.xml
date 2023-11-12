@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpiozero4MQTTcpu name="Raspi_2_1" room="Room1" logTo="./log/gpiozero4mqtt" atLevel="10" >
+	<!-- MQTT broker connection information -->
+	<MQTT host="10.148.82.21" port="1883" keepalive="60" qos="2"/>
+	<!-- MQTT Button  -->
+	<MQTT_Button name="BigButton1" pin="18" when_pressed="True" when_held="True" when_released="True">
+		<Static pull_up="False" active_state="None" pin_factory="None"/>	<!-- Optional -->
+		<Time bounce_time="0.05" hold_time="0.25" hold_repeat="False"/> <!-- Optional -->
+	</MQTT_Button>
+</gpiozero4MQTTcpu>

@@ -1,0 +1,20 @@
+This directory lists all the code needed to use the gpiozero4mqtt library.
+
+The main code is found in the Library directory. It contains the following files:
+
+	clsLog.py
+	Raspi_Info.py
+	RPi_I2C_driver.py
+
+	gpiozero4mqtt.py
+	SourceConnectionProcessor.py
+
+The Controller directory contains the following files:
+
+	PIOT_Controller.py
+	PIOT_Controller_Modified.py
+
+The Tkinter_MQTT_Tester directory contains the following files:
+
+	clsLog.py
+	TKInter-MQTT-Tester.py

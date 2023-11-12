@@ -1,0 +1,22 @@
+This directory contains the files that you need to have on the first Raspberry Pi of the sample project.
+------------------------------------------------------------------------------------------------
+The XML file contains 3 types of information.
+
+	1- The IP of the MQTT server and the port used as well as the quality of service asked for. and how long to keep the connection alive.
+
+	2- The list of what is connected to the Raspberry pi, in this case a simple button named BigButton1, with all the available parameters defined in the gpiozero library.
+
+	3- The list of things connected using their source attributes. None in the sample.
+
+-------------------------------------------------------------------------------------------------
+The PIOT_Controller.py file contains the minimum code needed to use the gpiozero4mqtt library. 
+
+	1- You either instantiate the class with it's default XML filename and location or, give the XML as an argument to the Controller. 
+
+	2- You connect to the MQTT server
+
+	3- Start the MQTT_Client loop
+
+	4- in an infinite loop, check if some widgets in the gpioList needs processing (Distance Sensor, 4x4 Keypad)
+
+	5- check if a keyboard interrupt was asked ... if so, disconnect for the MQTT server and stop the loop

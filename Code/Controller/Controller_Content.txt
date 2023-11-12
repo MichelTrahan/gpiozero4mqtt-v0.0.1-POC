@@ -1,0 +1,25 @@
+-------------------------------------------------------------------------------------------------
+The PIOT_Controller.py file contains the minimum code needed to use the gpiozero4mqtt library. 
+
+	1- You either instantiate the class with it's default XML filename and location or, give the XML as an argument to the Controller. 
+
+	2- You connect to the MQTT server
+
+	3- Start the MQTT_Client loop
+
+	4- in an infinite loop, check if some widgets in the gpioList needs processing (Distance Sensor, 4x4 Keypad)
+
+	5- check if a keyboard interrupt was asked ... if so, disconnect for the MQTT server and stop the loop
+
+-------------------------------------------------------------------------------------------------
+The PIOT_Controller_Modified.py file also contains the minimum code needed to use the gpiozero4mqtt library. But it adds some reactivity to it.
+
+	The minimum code is as above.
+
+	If you want to react to some events from some other raspberry pi connected to the same MQTT server, you need to add 3 things to the controller code.
+
+	A- One function per event you want to react to ... in this case, when the BigButton1 is either Pressed, Held, or Released, I want to light up some LED to show the event occured. So there are 3 functions to program.
+
+	B- Use a message_callback_Add function call to add each one of the newly defined functions, 3 in our case.
+
+	C- Subscribe to the events from the BigButton1
