@@ -26,6 +26,8 @@ Oh and I'm french canadian ... it could explain some mistakes ;)
 
 Mike.
 
+Mar 26, 2021
+
 Michel Trahan
 
 p.s.: I do see it is not real OOD ... but it was a proof of concept ... it would make sense to make it more like something we register what we want to communicate through MQTT. Moving on to kubernets myself, if anyone has the energy to augment/maintain this ... I am open to discussion !
